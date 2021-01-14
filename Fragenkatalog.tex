@@ -1,0 +1,288 @@
+\documentclass[11pt,titlepage]{article}
+\usepackage{amsmath,amssymb,amstext,mathtools,amsthm}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+%\usepackage[twoside,lmargin=3.5cm,rmargin=2.5cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{bookmarksnumbered}
+\usepackage{dsfont}
+
+\usepackage{xcolor}
+\usepackage[framemethod,tikz]{mdframed}
+\usetikzlibrary{shadows}
+
+%\usepackage{kvoptions}
+%\usepackage{xparse}
+%\usepackage{etoolbox}
+%\usepackage{color}
+%\usepackage{pstricks}
+
+
+
+\newcommand{\C}{\mathbb{C}} % komplexe
+\newcommand{\R}{\mathbb{R}} % reelle
+\newcommand{\Q}{\mathbb{Q}} % rationale
+\newcommand{\Z}{\mathbb{Z}} % ganze
+\newcommand{\N}{\mathbb{N}} % natuerliche
+\newcommand{\E}{\mathbb{E}} % Erwartungswert
+\newcommand{\F}{\mathcal{F}} %Funktionenfamilie
+\newcommand{\G}{\mathcal{G}} 
+\newcommand{\X}{\mathcal{X}} %Räume
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\abs}[1]{{\left| #1 \right|}}
+
+\newtheorem{question}{Frage}[section]
+\newtheorem*{remind}{Erinnerung}
+\newcounter{Frage}
+\addtocounter{Frage}{1}
+
+%\newenvironment{Name}[Anzahl]{Begin}{End}
+\mdfdefinestyle{outer}{outerlinewidth=0.5pt,backgroundcolor=blue!5,roundcorner=10pt,outerlinecolor=blue,innerlinewidth=0.5pt,innerlinecolor=black}
+\mdfdefinestyle{inner}{leftmargin=0.1cm,rightmargin=0.1cm,outerlinewidth=0.5pt,innerlinewidth=0.5pt,innerlinecolor=black,outerlinecolor=black,backgroundcolor=lightgray!10,roundcorner=5pt,linecolor=black}
+
+\title{Fragenkatalog zur Vorlesung "Elementare Differentialgeometrie"}
+\author{Jannis Klingler}
+\date{\today}
+\begin{document}
+	
+	\maketitle
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Wie ist die Tangentialebene parametrisiert?
+		\begin{mdframed}[style=inner]
+			Nicht klar was hier gemeint ist. Es gibt aber ein paar Zusammenhänge 
+			zur Parametrisierung der Fläche. Zum einen lässt sich feststellen, 
+			dass die beiden Vektoren $\frac{\partial F}{\partial u^1}$ und 
+			$\frac{\partial F}{\partial u^2}$ eine Basis der Tangentialebene bilden, 
+			da der Rang der Jacobimatrix $D_u F$ gerade $2$ ist und somit die beiden 
+			Vektoren eine Ebene aufspannen. Es gilt mit Proposition 2.13 
+			für einen Punkt $p\in S$ sogar 
+			\[T_p S =\text{Bild}(D_{u_0} F)=span\left(\frac{\partial F}{\partial u_0^1},\frac{\partial F}{\partial u_0^2}\right),\]
+			wobei $u_0=F^{-1}(p)\in U$. Die von den beiden Vektoren erzeugte 
+			Ebene entspricht also gerade der Tangentialebene im Punkt $p$. \\
+			Als zweites steht das Normalenfeld eines Punktes $p\in S$ senkrecht auf 
+			der Tangentialebene in diesem Punkt. Es gilt also
+			\[T_p S =N(p)^\bot.\]
+			Das Normalenfeld lässt sich mit den Vektoren 
+			$\frac{\partial F}{\partial u^1}$ und 
+			$\frac{\partial F}{\partial u^2}$ berechnen, also mit der 
+			Parametrisierung der Fläche.
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Warum bildet die Weingartenabbildung $T_p S$ auf $T_p S$ ab?
+		\begin{mdframed}[style=inner]
+		\textsl{(Siehe auch Bär S. 119)} Die Weingartenabbildung einer regulären Fläche $S\in\R^3$ mit 
+		Orientierung gegeben durch das Einheitsnormalenfeld $N$ ist definiert 
+		durch
+		\[W_p(X)=-d_p N(X).\]
+		Wir betrachten also das Differential der Gauß-Abbildung 
+		$N:S\to S^2$.
+		\begin{remind}
+			Für das Differential $d_p f$ einer glatten 
+			Abbildung $f:S_1\to S_2$ zwischen zwei regulären Flächen $S_1$ 
+			und $S_2$ in $p$ gilt:
+			\[d_p f:T_p S_1\to T_{f(p)}S_2.\]
+			\textsl{Vergleiche auch Bär Buch S. 108.}
+		\end{remind}
+		\noindent Damit gilt für das Differential der Gauß-Abbildung:
+		\[d_p N:T_p S\to T_{N(p)}S^2.\]
+		Für einen Punkt $p\in S^2$ gilt nun $T_p S^2=p^\bot$. Der Punkt 
+		$N(p)$ liegt offenbar in $S^2$ also erhalten wir 
+		\[T_{N(p)}S^2=N(p)^\bot.\]
+		Weiter ist das Normalenfeld einer Fläche $S$ durch die Eigenschaft 
+		$N(p)\bot T_p S$ definiert \textsl{(Vergleiche Bär S. 115)}. Es ergibt 
+		sich also 
+		\[T_{N(p)}S^2=N(p)^\bot =T_p S.\]
+		Also bildet die Weingartenabbildung von $T_p S$ auf $T_p S$ ab.	
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Welche Richtung des Beweises von Satz 1.42 funktioniert nicht, wenn 
+		die Kurve nicht einfach geschlossen ist? Gegenbeispiel einer Kurve 
+		hierfür?
+		\begin{mdframed}[style=inner]
+			Gegenbeispiel siehe Bär Buch S. 55.
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Sind Kreise und Geraden die einzigen ebenen Kurven mit konstanter Krümmung?
+		\begin{mdframed}[style=inner]
+			Sei $\kappa\in\R$ und $f :I\to \R$ eine glatte Abbildung mit 
+			$f(t)=\kappa$ für alle $t\in I$. Dann gibt es mit dem Hauptsatz der 
+			ebenen Kurventheorie eine bis auf Dahinterschaltung von 
+			orientierungserhaltenden euklidischen Bewegungen (Drehung und Verschiebung) eindeutig bestimmte, nach Bogenlänge parametrisierte Kurve 
+			$c:I\to\R^2$ mit Krümmung $\kappa$. Falls $\kappa=0$ so ist $c$ 
+			offensichtlich eine Gerade. Nach dem Hauptsatz ist diese bis auf 
+			Dahinterschaltung orientierungserhaltender euklidischer Bewegungen 
+			eindeutig. Für alle $\kappa>0$ gibt es 
+			ein $r>0$ mit $\kappa=\frac{1}{r}$. Wir wissen, dass 
+			jeder gegen den Uhrzeigersinn verlaufende Kreis mit Radius $r$ 
+			die Krümmung $\frac{1}{r}$ hat. Umgekehrt hat jeder im Uhrzeigersinn 
+			verlaufende Kreis mit Radius $r$ die Krümmung $-\frac{1}{r}$. Wie 
+			oben begründet sich auch hier mit dem Hauptsatz 
+			die Eindeutigkeit dieser Kurven. Damit finden wir für alle $\kappa\in\R$ 
+			eine bis auf orientierungserhaltende euklidische Bewegung eindeutig 
+			bestimmte Kurve, mit Krümmung $\kappa$, die entweder eine Gerade oder 
+			ein Kreis ist.
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Bezug der Tangentialebene zum Gradienten?
+		\begin{mdframed}[style=inner]
+			Hier wird vermutlich Proposition 2.15 gemeint sein. Hierbei ist 
+			der Zusammenhang zu einer regulären Fläche $S$, die sich mithilfe einer 
+			Funktion $f:V\to\R$ darstellen lässt \textsl{(Verleiche hierzu auch
+				Proposition 2.4)}. Hierbei gilt 
+			\[S=\{(x,y,z)\in V\ \vert\ f(x,y,z)=0\}\]
+			und grad$f(p)\neq 0$ für alle $p\in S$. Nun gilt mit Proposition 
+			2.15, dass der Gradient von $f$ für alle $p\in S$ senkrecht auf 
+			der Tangentialeben, das heißt es gilt
+			\[T_p S=\text{grad}f(p)^\bot.\]
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Zweite kovariante Ableitung erläutern.
+		\begin{mdframed}[style=inner]
+			Todo
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Warum ist die Definition des Normalenvektors im Raum nicht eindeutig?
+		\begin{mdframed}[style=inner]
+			Auf Seite 65 im Bär Buch steht hierzu eine Erklärung.1
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Wie sieht die Taylorentwicklung einer Raumkurve mithilfe von Krümmung und Torsion 
+		aus?
+		\begin{mdframed}[style=inner]
+			Todo
+		\end{mdframed}
+	\end{mdframed}
+
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Was ist die Winkelfunktion $\theta$? Bild dazu?
+		\begin{mdframed}[style=inner]
+			\href{https://www.youtube.com/watch?v=9j1ibPoa-bQ&list=PLb0zKSynM2PD3i3xMuWrUF9_txMrJMGEZ&index=19&ab_channel=Weitz%2FHAWHamburg}{Ein hilfreiches Video.}
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=outer]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Bär Buch Seite 168. Beispiel 4.2.3. Wie kommt man von der ausgerechneten 
+		Gleichung auf die Darstellung von $\xi^j$?
+		\begin{mdframed}[style=inner]
+			Todo
+		\end{mdframed}
+	\end{mdframed}
+	
+	\begin{mdframed}[style=inner]
+		\textbf{Frage\ \theFrage \addtocounter{Frage}{1}:}
+		Beweis zu 2.38: \\
+		%\begin{mdframed}[style=inner,]
+			Sei $S$ eine kompakte nicht leere reguläre Fläche. Wegen der 
+			Kompaktheit ist $S$ also auch beschränkt und es existiert ein 
+			genügend großer Radius $R>0$, sodass $S$ in der abgeschlossenen 
+			Kugel $\overline{B_R(0)}$ enthalten ist, das heißt
+			\[S\subseteq \overline{B_R(0)}=\{x\in\R^3\ \vert\ \abs{\abs{x}}\leq R\}.\]
+			Wir wollen den Radius der Kugel nun solange verkleinern bis 
+			die Kugeloberfläche die Fläche berührt. Wir werden festellen, 
+			dass wir hierbei einen Punkt erhalten, dessen Gauß-Krümmung 
+			positiv ist. Wir wählen gerade den minimalen Radius für die Kugel, 
+			sodass die Fläche $S$ noch in der abgeschlossenen Kugel 
+			enthalten ist. Dafür definieren wir 
+			\[R_0 :=\inf \{R>0\ \vert\ S\subseteq \overline{B_R(0)}\}.\]
+			Es gilt also offenbar $S\subseteq \overline{B_{R_0}(0)}$. Als 
+			nächstes müssen wir uns also überlegen warum die Fläche $S$ und 
+			die Kugeloberfläche $S_{R_0}(0)=\partial\overline{B_{R_0}(0)}$ 
+			einen Schnittpunkt haben, also 
+			$S\cap S_{R_0}(0)\neq\emptyset$. Angenommen der Schnitt beider 
+			Mengen ist leer, dann gibt ein $\varepsilon>0$ nämlich
+			\[\varepsilon:=min\{\abs{\abs{x-y}}\ \vert\ x\in S,y\in S_{R_0}(0)\}.\]
+			Wir bemerken, dass dieses Minimum existiert, da
+			 sowohl $S$ als auch 
+			$S_{R_0}(0)$ jeweils abgeschlossene Mengen sind. Weiter ist 
+			aber auch $S$ nun in dem um $\varepsilon$ verkleinerten 
+			abgeschlossenen Ball $\overline{B_{R_0-\varepsilon}(0)}$ enthalten, 
+			also
+			\[S\subseteq\overline{B_{R_0-\varepsilon}(0)},\]
+			was jedoch im Widerspruch zur Annahme steht, dass $R_0$ der 
+			minimale Radius mit dieser Eigenschaft ist. Damit ist der Schnitt 
+			von $S$ und $S_{R_0}(0)$ nicht leer und wir erhalten also einen 
+			Punkt $p\in S\cap S_{R_0}(0)$. Es bleibt nun noch zu zeigen, dass 
+			für $p\in S$ gilt $K(p)>0$. \\
+			Zunächst überlegen wir uns, dass $S_{R_0}(0)$ eine reguläre 
+			Fläche ist und dass $S$ und $S_{R_0}(0)$ in $p$ dieselbe 
+			Tangentialebene haben:
+			\[T_p S=T_p S_{R_0}(0).\]
+			Es gilt $T_p S_{R_0}(0)=N(p)^\bot=p^\bot$ und damit ist
+			\[T_p S_{R_0}(0)=\{X\in\R^3\ \vert\ \langle X,p\rangle=0\}.\]
+			Angenommen die Tangentialebenen stimmen nicht überein, dann gibt 
+			es $X\in T_p S$ mit $X\notin T_p S_{R_0}(0)$, das heißt 
+			$\langle X,p\rangle \neq 0$. Da $X\in T_p S$ liegt, gibt es 
+			eine Kurve $c:(-\varepsilon,\varepsilon)\to S$ mit 
+			$c(0)=p$ und $c'(0)=X$. Da $c$ in der Fläche $S$ liegt und 
+			die Fläche wiederum in $\overline{B_{R_0}(0)}$ enthalten ist gilt 
+			\[\abs{\abs{c(t)}}\leq R_0\]
+			für alle $t\in(-\varepsilon,\varepsilon)$. Weiter gilt 
+			$\abs{\abs{c(0)}}=\abs{\abs{p}}=R_0$, also hat die Betragsfunktion 
+			$\abs{\abs{c}}$ in $0$ ein lokales Maximum und damit offensichtlich 
+			auch $\abs{\abs{c}}^2$. Es folgt also $(\abs{\abs{c}}^2)'(0)=0$ und 
+			damit
+			\[0=(\abs{\abs{c}}^2)'(0)=2\langle c',c\rangle (0)=2\langle X,p\rangle.\]
+			Also gilt $\langle X,p\rangle =0$, was im Widerspruch zur 
+			Voraussetzung $X\notin T_p S_{R_0}(0)$ steht. Es gibt also 
+			keinen Punkt der in $T_p S$ liegt und nicht in $T_p S_{R_0}(0)$ und 
+			damit gilt $T_p S\subseteq T_p S_{R_0}(0)$. Da 
+			$\dim T_p S=2=\dim T_p S_{R_0}(0)$ folgt $T_p S=T_p S_{R_0}(0)$.\\
+			Wir wollen nun Normalschnitte von $S$ und $S_{R_0}(0)$ im 
+			Punkt $p$ betrachten. Sei $E$ dazu eine Ebene, die durch 
+			den Normalenvektor $N(p)$ und einen Tangentialvektor 
+			aus $T_p S=T_p S_{R_0}(0)$ aufgespannt wird. Die Normalkrümmung der 
+			Kugeloberfläche in Richtung der Ebene hat den Wert 
+			$\abs{\frac{1}{R_0}}$ ($\frac{1}{R_0}$ falls die Normale $N(p)$ 
+			nach innen zeigt und $-\frac{1}{R_0}$ falls die 
+			Normale nach außen zeigt). Dann sehen wir, 
+			dass $S\cap E$ immer innerhalb der Kreislinie $S_{R_0}(0)\cap E$ 
+			liegt und diese in $p$ berührt. Also gilt für die Normalkrümmung 
+			der Fläche $S$ in Richtung der Ebene
+			\[\abs{\kappa_{\text{nor}}}\geq \frac{1}{R_0}.\]
+			Da wir den Tangentialvektor der $E$ aufspannt 
+			beliebig gewählt haben sind alle Normalkrümmungen in $p$ 
+			dementsprechend beschränkt. Betrachten wir nun die Werte der 
+			Hauptkrümmungen $\kappa_1$ und $\kappa_2$ der Fläche $S$, 
+			welche bekanntlich das Minimum bzw. Maximum aller 
+			Normalkrümmungswerte sind (\textsl{siehe Bär Buch S.127}), dann 
+			gilt
+			\begin{enumerate}
+				\item Falls die Normale nach innen zeigt ist 
+				$\kappa_1,\kappa_2\in[\frac{1}{R_0},\infty)$ und damit
+				\[\kappa_1\cdot\kappa_2\geq\frac{1}{R_0}\cdot\frac{1}{R_0}=\frac{1}{R_0^2}.\]
+				\item Falls die Normale nach außen zeigt ist 
+				$\kappa_1,\kappa_2\in(-\infty,-\frac{1}{R_0}]$ und damit
+				$\kappa_1\cdot\kappa_2\in[\frac{1}{R_0^2},\infty)$ also
+				\[\kappa_1\cdot\kappa_2\geq \frac{1}{R_0^2}.\]
+			\end{enumerate}
+			In beiden Fällen erhalten wir also
+			\[K(p)=\kappa_1\cdot\kappa_2\geq \frac{1}{R_0^2}>0.\]
+		%\end{mdframed}
+	\end{mdframed}
+\end{document}
